@@ -41,9 +41,9 @@ jobs:
 
       - name: Run sync script
         run: |
-          MODE_FLAG=""
-          if [ "${{ github.event.inputs.mode }}" = "replace" ]; then
-            MODE_FLAG="--replace"
+          MODE_FLAG="--replace"
+          if [ "${{ github.event.inputs.mode }}" = "add" ]; then
+            MODE_FLAG=""
           fi
           python3 sync-drive.py $MODE_FLAG
 
