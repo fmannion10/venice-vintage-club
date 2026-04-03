@@ -268,18 +268,14 @@ def update_html_community(html, images):
 
 
 def update_html_space(html, images):
-    """Update the space section images (2-column split)."""
+    """Update the space section images (grid)."""
     if not images:
         return html
-    # Take first 2 images, label them
-    labels = ["The Garage", "The Office"]
     split_items = []
-    for i, img in enumerate(images[:2]):
-        label = labels[i] if i < len(labels) else f"Space {i+1}"
+    for img in images:
         split_items.append(
             f'            <div class="community-split-img">\n'
-            f'                <img src="images/{img}" alt="{label}">\n'
-            f'                <span class="corner-label">{label}</span>\n'
+            f'                <img src="images/{img}" alt="The Space" loading="lazy">\n'
             f'            </div>'
         )
     new_split = "\n".join(split_items)
