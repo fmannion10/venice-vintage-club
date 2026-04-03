@@ -14,6 +14,7 @@ Drive folder structure expected:
     LOOKBOOK/   → lookbook filmstrip images
     EVENT/      → 1 image (event background)
     DROP/       → product images (up to 4)
+    MORGAN/     → 1 image (about section background)
 
 Usage:
     python3 sync-drive.py [--replace]
@@ -53,6 +54,7 @@ IMAGE_SIZES = {
     "lookbook": (800, 1000),
     "event": (2400, 1600),
     "drop": (800, 1000),
+    "morgan": (1920, 1280),
 }
 
 SUPPORTED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".tif", ".tiff", ".heic", ".webp"}
@@ -342,6 +344,15 @@ def update_html_drop(html, images):
     return html
 
 
+def update_html_morgan(html, images):
+    """Update the about-morgan section background image."""
+    if not images:
+        return html
+    pattern = r'(<div class="about-morgan-bg">\s*<img src="images/)[^"]+(")'
+    replacement = f"\\g<1>{images[0]}\\2"
+    return re.sub(pattern, replacement, html, flags=re.DOTALL)
+
+
 def update_index_html(section_images, replace_mode):
     """Read index.html, update image references, write back."""
     log("Updating index.html...")
@@ -359,6 +370,7 @@ def update_index_html(section_images, replace_mode):
         "lookbook": update_html_lookbook,
         "event": update_html_event,
         "drop": update_html_drop,
+        "morgan": update_html_morgan,
     }
 
     for section, images in section_images.items():

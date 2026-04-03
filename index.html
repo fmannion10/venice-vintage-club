@@ -2018,64 +2018,49 @@
         }
 
         /* ======= THE NEWSSTAND ======= */
-        .the-newsstand {
-            background: transparent;
-            padding: 100px 40px;
-            overflow: hidden;
-        }
-
-        .newsstand-rack {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            max-width: 1000px;
-            margin: 48px auto 0;
+        .about-morgan {
             position: relative;
+            width: 100%;
+            min-height: 80vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
         }
 
-        .newsstand-rack::after {
-            content: '';
+        .about-morgan-bg {
             position: absolute;
-            bottom: -16px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, rgba(245, 240, 232, 0.08), rgba(245, 240, 232, 0.12), rgba(245, 240, 232, 0.08), transparent);
-            border-radius: 2px;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
         }
 
-        .newsstand-card {
-            background: linear-gradient(135deg, #3a2a1a 0%, #2a1a0a 100%);
-            border: 1px solid rgba(139, 69, 19, 0.3);
-            border-radius: 3px;
-            padding: 32px 24px;
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            overflow: hidden;
+        .about-morgan-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
         }
 
-        .newsstand-card::before {
+        .about-morgan-bg::after {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-            opacity: 0.08;
-            border-radius: 3px;
-            pointer-events: none;
+            background: linear-gradient(
+                to right,
+                rgba(10, 8, 6, 0.85) 0%,
+                rgba(10, 8, 6, 0.7) 40%,
+                rgba(10, 8, 6, 0.3) 70%,
+                transparent 100%
+            );
         }
 
-        .newsstand-card:nth-child(1) { transform: rotate(-1.5deg); }
-        .newsstand-card:nth-child(2) { transform: rotate(0.8deg); }
-        .newsstand-card:nth-child(3) { transform: rotate(-0.5deg); }
-        .newsstand-card:nth-child(4) { transform: rotate(1.2deg); }
-
-        .newsstand-card:hover {
-            transform: rotate(0deg) translateY(-6px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        .about-morgan-content {
+            position: relative;
+            z-index: 1;
+            max-width: 560px;
+            padding: 80px 60px;
         }
 
-        .newsstand-card .card-issue {
+        .about-morgan-content .section-label {
             font-family: 'Inter', sans-serif;
             font-size: 0.55rem;
             letter-spacing: 0.2em;
@@ -2083,45 +2068,40 @@
             color: var(--orange);
             opacity: 0.7;
             margin-bottom: 16px;
-            position: relative;
-            z-index: 1;
         }
 
-        .newsstand-card .card-title {
+        .about-morgan-content h2 {
             font-family: 'DM Serif Display', serif;
-            font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 400;
             color: var(--cream);
-            margin-bottom: 12px;
-            line-height: 1.3;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 32px;
+            line-height: 1.2;
         }
 
-        .newsstand-card .card-excerpt {
+        .about-morgan-content p {
             font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             color: var(--cream);
-            opacity: 0.4;
-            line-height: 1.6;
-            position: relative;
-            z-index: 1;
+            opacity: 0.55;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
 
-        .newsstand-card .card-cta {
+        .about-morgan-content .morgan-cta {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 12px;
             font-family: 'Inter', sans-serif;
             font-size: 0.6rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--orange);
-            opacity: 0.6;
+            opacity: 0.7;
+            text-decoration: none;
             transition: opacity 0.3s;
-            position: relative;
-            z-index: 1;
         }
 
-        .newsstand-card:hover .card-cta {
+        .about-morgan-content .morgan-cta:hover {
             opacity: 1;
         }
 
@@ -2365,14 +2345,27 @@
                 min-height: 220px;
             }
 
-            /* Newsstand stacks to 2 cols */
-            .newsstand-rack {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
+            /* About Morgan responsive */
+            .about-morgan {
+                min-height: 60vh;
             }
 
-            .newsstand-card {
-                transform: rotate(0deg) !important;
+            .about-morgan-content {
+                padding: 60px 32px;
+                max-width: 100%;
+            }
+
+            .about-morgan-bg::after {
+                background: linear-gradient(
+                    to top,
+                    rgba(10, 8, 6, 0.9) 0%,
+                    rgba(10, 8, 6, 0.6) 50%,
+                    rgba(10, 8, 6, 0.3) 100%
+                );
+            }
+
+            .about-morgan {
+                align-items: flex-end;
             }
 
             .footer-inner {
@@ -2437,8 +2430,8 @@
                 gap: 16px;
             }
 
-            .newsstand-rack {
-                grid-template-columns: 1fr;
+            .about-morgan-content h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -2884,32 +2877,18 @@
         <p class="drop-note fade-in"><a href="https://instagram.com/venicevintageclub" target="_blank">DM us on Instagram</a> or sign up below to purchase. Ship + local pickup available.</p>
     </section>
 
-    <!-- Section 10: About Morgan / VVC -->
-    <section class="the-newsstand" aria-label="About">
-        <div class="section-label fade-in">The People</div>
-        <h2 class="section-title fade-in">Meet Morgan</h2>
-        <div class="newsstand-rack">
-            <div class="newsstand-card fade-in">
-                <div class="card-issue">Founder</div>
-                <div class="card-title">Morgan Reisel</div>
-                <div class="card-excerpt">Creative director, vintage obsessive, and the eye behind every rack at Venice Vintage Club.</div>
-            </div>
-            <div class="newsstand-card fade-in">
-                <div class="card-issue">The Vision</div>
-                <div class="card-title">A Club, Not a Store</div>
-                <div class="card-excerpt">VVC started in a Venice garage with one rule: if it doesn't have a story, it doesn't make the cut.</div>
-            </div>
-            <div class="newsstand-card fade-in">
-                <div class="card-issue">The Curation</div>
-                <div class="card-title">Every Piece, Handpicked</div>
-                <div class="card-excerpt">90s denim, vintage signs, band tees, and one-of-ones. Nothing mass-produced, nothing boring.</div>
-            </div>
-            <div class="newsstand-card fade-in">
-                <div class="card-issue">Follow Along</div>
-                <div class="card-title">@venicevintageclub</div>
-                <div class="card-excerpt">Behind-the-scenes finds, garage sessions, and first looks at what's coming to the racks.</div>
-                <span class="card-cta"><a href="https://instagram.com/venicevintageclub" target="_blank">Follow &rarr;</a></span>
-            </div>
+    <!-- Section 10: About VVC / Meet Our Founder Morgan -->
+    <section class="about-morgan" aria-label="About VVC">
+        <div class="about-morgan-bg">
+            <img src="images/morgan-05.jpg" alt="Morgan Reisel, founder of Venice Vintage Club" loading="lazy">
+        </div>
+        <div class="about-morgan-content">
+            <div class="section-label fade-in">About VVC</div>
+            <h2 class="fade-in">Meet Our Founder, Morgan</h2>
+            <p class="fade-in">Venice Vintage Club started the way the best things do — out of a garage, fueled by obsession. Morgan Reisel grew up thrifting, collecting, and falling in love with pieces that had a past. VVC is her way of sharing that with Venice.</p>
+            <p class="fade-in">Every item is handpicked. Every rack is curated. No algorithms, no mass production — just one person's eye for the stuff that tells a story. From 90s denim and vintage signage to band tees and one-of-ones, if it made the cut, it's because Morgan believed in it.</p>
+            <p class="fade-in">VVC isn't a store. It's a club. A community of people who care about where things come from and the lives they've lived. Pull up, dig through the racks, and find something worth keeping.</p>
+            <a href="https://instagram.com/venicevintageclub" target="_blank" class="morgan-cta fade-in">Follow the journey &rarr;</a>
         </div>
     </section>
 
