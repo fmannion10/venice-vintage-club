@@ -123,6 +123,13 @@ This was removed intentionally. If you want it back, ask a developer — it's st
 
 ---
 
+## Accounts & Credentials
+
+- **Google Workspace login credentials** (Gmail, Drive, etc.) can be found in the Google Doc called **"VVC PRD"**
+- To manage the Google Workspace account (add users, reset passwords, billing), go to [admin.google.com](https://admin.google.com) and sign in with the VVC credentials from that doc
+
+---
+
 ## Who to Contact
 
 - **Freddie** — Built the site, can help with any technical changes
