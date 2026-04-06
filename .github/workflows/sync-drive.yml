@@ -42,6 +42,7 @@ jobs:
           else
             TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
             git commit -m "Sync photos from Google Drive — $TIMESTAMP"
+            git pull --rebase
             git push
           fi
 
