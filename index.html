@@ -883,7 +883,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('images/hero-01.jpg') center/cover no-repeat;
+            background: url('images/hero-01.jpg') center 40%/cover no-repeat;
             filter: brightness(0.55) contrast(1.1) saturate(0.8);
             transform: scale(1.05);
         }
@@ -1400,6 +1400,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center top;
             filter: contrast(1.05) saturate(0.9);
             transition: transform 0.6s ease;
         }
@@ -1510,7 +1511,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
+            object-position: center top;
             opacity: 0;
             transition: opacity 1.2s ease;
             filter: contrast(1.05) saturate(0.9);
@@ -1674,7 +1675,8 @@
         .event-bg img {
             width: 100%; height: 100%;
             object-fit: cover;
-            filter: brightness(0.22) contrast(1.1) saturate(0.7);
+            object-position: center top;
+            filter: brightness(0.4) contrast(1.1) saturate(0.8);
         }
 
         .event-overlay {
@@ -1790,7 +1792,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center top;
+            object-position: center 25%;
         }
 
         .about-morgan-bg::after {
@@ -1799,9 +1801,9 @@
             top: 0; left: 0; right: 0; bottom: 0;
             background: linear-gradient(
                 to right,
-                rgba(10, 8, 6, 0.85) 0%,
-                rgba(10, 8, 6, 0.7) 40%,
-                rgba(10, 8, 6, 0.3) 70%,
+                rgba(10, 8, 6, 0.8) 0%,
+                rgba(10, 8, 6, 0.5) 35%,
+                rgba(10, 8, 6, 0.15) 65%,
                 transparent 100%
             );
         }

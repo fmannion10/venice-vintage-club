@@ -29,6 +29,12 @@ Each folder in Google Drive maps to a section of the website:
 | `EVENT/` | The background image behind the event/RSVP section | 1 photo |
 | `MORGAN/` | The background image in the "About VVC" section | 1 photo |
 
+### Photo Orientation
+
+The site is designed with a **landscape (horizontal) layout** — all the slideshows and background sections are wider than they are tall. If you upload vertical/portrait photos (like most phone photos taken in portrait mode), the site will crop the sides to make them fit, which can cut off parts of the image.
+
+**Landscape (horizontal) photos look best** in every section, especially HERO, MOOD, and EVENT. Portrait photos work fine for MORGAN since it's a person shot, and they're OK in COMMUNITY and LOOKBOOK (the site keeps faces visible by showing the top of the photo). If something looks cut off, try replacing it with a landscape version.
+
 ### Photo Tips
 
 - Photos are automatically resized and optimized for web — upload full-quality originals

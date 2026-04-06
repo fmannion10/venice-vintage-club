@@ -97,6 +97,18 @@ The Drive folder must have these subfolders. Drop photos into the right one:
 | `EVENT/` | Event section background | 1 photo |
 | `MORGAN/` | About section background (Morgan portrait) | 1 photo |
 
+### Photo orientation — important!
+
+The site layout is **landscape/horizontal** — slideshows, backgrounds, and grids are all wider than they are tall. If you upload **portrait/vertical photos** (like most phone photos), the site will crop the sides to make them fit. This means parts of the photo will be cut off.
+
+**For best results:**
+- **HERO, MOOD, EVENT** — Use **landscape (horizontal)** photos. These sections are full-width and will crop portrait photos heavily.
+- **COMMUNITY, LOOKBOOK** — Landscape works best, but portrait photos will still look OK (the site shows the top of the image so faces stay visible).
+- **SPACE** — A mix of landscape and portrait is fine here since it's a grid, but landscape photos fill the grid cells more naturally.
+- **MORGAN** — Portrait is fine here since it's a person photo. The site is set up to show the face/upper body.
+
+If a photo looks cut off on the site, it's almost always because a vertical photo is being displayed in a horizontal space. The easiest fix is to swap it for a landscape version of the same shot.
+
 ### Supported photo formats
 `.jpg`, `.jpeg`, `.png`, `.tif`, `.tiff`, `.heic`, `.webp` — all get converted to optimized JPG automatically.
 
