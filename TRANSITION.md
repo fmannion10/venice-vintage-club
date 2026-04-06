@@ -36,7 +36,7 @@ venice-vintage-club/
 │   ├── community-*.jpg     ← Community carousel (synced from Drive)
 │   ├── mood-*.jpg          ← Mood slideshow (synced from Drive)
 │   ├── space-*.jpg         ← The Space grid (synced from Drive)
-│   ├── lookbook-*.jpg      ← Lookbook filmstrip (synced from Drive)
+│   ├── lookbook-*.jpg      ← Lookbook magazine spreads (synced from Drive)
 │   ├── morgan-*.jpg        ← Morgan's film scans
 │   ├── globe-logo*.png     ← Spinning globe brand asset
 │   ├── vvc-logo*.png       ← VVC text logos (clean, purple, neon variants)
@@ -93,7 +93,7 @@ The Drive folder must have these subfolders. Drop photos into the right one:
 | `MOOD/` | Mood slideshow (auto-advances) | As many as you want |
 | `COMMUNITY/` | Community filmstrip carousel | As many as you want |
 | `SPACE/` | "The Space" photo grid | As many as you want |
-| `LOOKBOOK/` | Lookbook filmstrip gallery | As many as you want |
+| `LOOKBOOK/` | Lookbook magazine spreads (two photos side by side per page) | Even number works best |
 | `EVENT/` | Event section background | 1 photo |
 | `MORGAN/` | About section background (Morgan portrait) | 1 photo |
 
@@ -103,7 +103,8 @@ The site layout is **landscape/horizontal** — slideshows, backgrounds, and gri
 
 **For best results:**
 - **HERO, MOOD, EVENT** — Use **landscape (horizontal)** photos. These sections are full-width and will crop portrait photos heavily.
-- **COMMUNITY, LOOKBOOK** — Landscape works best, but portrait photos will still look OK (the site shows the top of the image so faces stay visible).
+- **COMMUNITY** — Landscape works best, but portrait photos will still look OK (the site shows the top of the image so faces stay visible).
+- **LOOKBOOK** — **Portrait (vertical) photos work great here.** Photos display two side by side in a magazine spread layout, so portrait shots naturally fill the space. Upload an even number so they pair up evenly.
 - **SPACE** — A mix of landscape and portrait is fine here since it's a grid, but landscape photos fill the grid cells more naturally.
 - **MORGAN** — Portrait is fine here since it's a person photo. The site is set up to show the face/upper body.
 
@@ -262,8 +263,8 @@ These should also be backed up to Google Drive (in a `BRANDING/` folder).
 
 - [ ] Replace Mailchimp placeholders (see Mailchimp section above)
 - [ ] Set up `hello@venicevintageclub.com` via Google Workspace
-- [ ] Drop a real Morgan portrait into Drive `MORGAN/` folder
-- [ ] Swap hero placeholder for final garage photo (Drive `HERO/` folder)
+- [x] Drop a real Morgan portrait into Drive `MORGAN/` folder
+- [x] Swap hero placeholder for final garage photo (Drive `HERO/` folder)
 - [ ] Create Stripe payment links for products (or keep DM-to-purchase)
 - [ ] Upload branding assets to Drive `BRANDING/` folder
 

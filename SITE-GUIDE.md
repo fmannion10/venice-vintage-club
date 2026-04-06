@@ -25,7 +25,7 @@ Each folder in Google Drive maps to a section of the website:
 | `MOOD/` | The full-screen slideshow below the hero (click arrows to browse) | As many as you want |
 | `COMMUNITY/` | The slideshow in "The Club" section with "Vintage With a Pulse" text over it | As many as you want |
 | `SPACE/` | The venue photos in "The Space" section (2-column grid) | 2+ photos |
-| `LOOKBOOK/` | The slideshow in the Lookbook section (click arrows to browse) | As many as you want |
+| `LOOKBOOK/` | Magazine-spread pairs in the Lookbook section (two photos side by side, click arrows to browse) | Even number works best (photos pair up) |
 | `EVENT/` | The background image behind the event/RSVP section | 1 photo |
 | `MORGAN/` | The background image in the "About VVC" section | 1 photo |
 
@@ -33,14 +33,15 @@ Each folder in Google Drive maps to a section of the website:
 
 The site is designed with a **landscape (horizontal) layout** — all the slideshows and background sections are wider than they are tall. If you upload vertical/portrait photos (like most phone photos taken in portrait mode), the site will crop the sides to make them fit, which can cut off parts of the image.
 
-**Landscape (horizontal) photos look best** in every section, especially HERO, MOOD, and EVENT. Portrait photos work fine for MORGAN since it's a person shot, and they're OK in COMMUNITY and LOOKBOOK (the site keeps faces visible by showing the top of the photo). If something looks cut off, try replacing it with a landscape version.
+**Landscape (horizontal) photos look best** for most sections, especially HERO, MOOD, and EVENT. Portrait photos work fine for MORGAN (it's a person shot) and **LOOKBOOK** (photos display two side by side in a magazine spread, so portrait/vertical shots actually work great there). For COMMUNITY, the site keeps faces visible by showing the top of the photo. If something looks cut off, try replacing it with a landscape version.
 
 ### Photo Tips
 
 - Photos are automatically resized and optimized for web — upload full-quality originals
 - Supported formats: JPG, PNG, HEIC (iPhone photos), TIFF, WebP
 - Name your files in the order you want them to appear (e.g., `01.jpg`, `02.jpg`, `03.jpg`)
-- For slideshows (MOOD, COMMUNITY, LOOKBOOK), landscape/wide photos work best
+- For slideshows (MOOD, COMMUNITY), landscape/wide photos work best
+- For LOOKBOOK, portrait/vertical photos work great (they display two side by side) — upload an even number so they pair up evenly
 - For HERO and EVENT, use wide landscape photos (they fill the full screen width)
 - For MORGAN, a vertical or square photo works well
 
@@ -70,7 +71,7 @@ Photos sync from Google Drive to the site automatically **every day at 9am Pacif
 5. **Globe + Event Countdown** — The spinning globe with countdown timer
 6. **The Club (Community)** — Photo slideshow with "Vintage With a Pulse" overlay text
 7. **The Space** — Venue description + photo grid
-8. **Lookbook** — Photo slideshow with arrows
+8. **Lookbook** — Two photos side by side in a magazine spread layout (click arrows to flip through pairs)
 9. **The Event** — RSVP section with background photo
 10. **About VVC** — Morgan's bio with background photo
 11. **Email Signup** — Mailing list capture
