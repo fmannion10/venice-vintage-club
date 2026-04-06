@@ -1499,26 +1499,35 @@
         .lookbook-slideshow {
             position: relative;
             width: 100%;
-            height: 80vh;
+            max-width: 1100px;
+            margin: 48px auto 0;
             overflow: hidden;
-            margin-top: 48px;
         }
 
-        .lookbook-slideshow > img {
+        .lookbook-spread {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .lookbook-spread:not(.active) {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            opacity: 0;
-            transition: opacity 1.2s ease;
-            filter: contrast(1.05) saturate(0.9);
         }
 
-        .lookbook-slideshow > img.active {
+        .lookbook-spread.active {
             opacity: 1;
+        }
+
+        .lookbook-spread img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: contrast(1.05) saturate(0.9);
         }
 
         .lookbook-slideshow .slide-arrow {
@@ -1550,7 +1559,10 @@
 
         @media (max-width: 768px) {
             .lookbook-slideshow {
-                height: 60vh;
+                max-width: 95%;
+            }
+            .lookbook-spread {
+                gap: 8px;
             }
             .lookbook-slideshow .slide-arrow {
                 width: 36px;
@@ -2394,17 +2406,25 @@
         <h2 class="section-title fade-in">Lookbook</h2>
         <p class="space-subtitle fade-in">"Vintage With a Pulse"</p>
         <div class="lookbook-slideshow" id="lookbook-slideshow" aria-label="Lookbook photos">
-            <img src="images/lookbook-01.jpg" alt="Lookbook" class="active" loading="lazy">
-            <img src="images/lookbook-02.jpg" alt="Lookbook" loading="lazy">
-            <img src="images/lookbook-03.jpg" alt="Lookbook" loading="lazy">
-            <img src="images/lookbook-04.jpg" alt="Lookbook" loading="lazy">
-            <img src="images/lookbook-05.jpg" alt="Lookbook" loading="lazy">
-            <img src="images/lookbook-06.jpg" alt="Lookbook" loading="lazy">
-            <img src="images/lookbook-07.jpg" alt="Lookbook" loading="lazy">
-            <img src="images/lookbook-08.jpg" alt="Lookbook" loading="lazy">
+            <div class="lookbook-spread active">
+                <img src="images/lookbook-01.jpg" alt="Lookbook" loading="lazy">
+                <img src="images/lookbook-02.jpg" alt="Lookbook" loading="lazy">
+            </div>
+            <div class="lookbook-spread">
+                <img src="images/lookbook-03.jpg" alt="Lookbook" loading="lazy">
+                <img src="images/lookbook-04.jpg" alt="Lookbook" loading="lazy">
+            </div>
+            <div class="lookbook-spread">
+                <img src="images/lookbook-05.jpg" alt="Lookbook" loading="lazy">
+                <img src="images/lookbook-06.jpg" alt="Lookbook" loading="lazy">
+            </div>
+            <div class="lookbook-spread">
+                <img src="images/lookbook-07.jpg" alt="Lookbook" loading="lazy">
+                <img src="images/lookbook-08.jpg" alt="Lookbook" loading="lazy">
+            </div>
 
-            <button class="slide-arrow slide-arrow--left" aria-label="Previous photo">&#8249;</button>
-            <button class="slide-arrow slide-arrow--right" aria-label="Next photo">&#8250;</button>
+            <button class="slide-arrow slide-arrow--left" aria-label="Previous spread">&#8249;</button>
+            <button class="slide-arrow slide-arrow--right" aria-label="Next spread">&#8250;</button>
         </div>
     </section>
 
@@ -2646,7 +2666,26 @@
 
         initSlideshow('mood-slideshow', 8000);
         initSlideshow('community-slideshow', 6000);
-        initSlideshow('lookbook-slideshow', 7000);
+        // Lookbook — cycles through spread pairs
+        (function() {
+            var show = document.getElementById('lookbook-slideshow');
+            if (!show) return;
+            var spreads = show.querySelectorAll('.lookbook-spread');
+            var current = 0;
+            var timer;
+
+            function go(i) {
+                spreads[current].classList.remove('active');
+                current = (i + spreads.length) % spreads.length;
+                spreads[current].classList.add('active');
+                clearInterval(timer);
+                timer = setInterval(function() { go(current + 1); }, 7000);
+            }
+
+            show.querySelector('.slide-arrow--left').addEventListener('click', function() { go(current - 1); });
+            show.querySelector('.slide-arrow--right').addEventListener('click', function() { go(current + 1); });
+            timer = setInterval(function() { go(current + 1); }, 7000);
+        })();
     </script>
 
 </body>

@@ -289,16 +289,28 @@ def update_html_space(html, images):
 
 
 def update_html_lookbook(html, images):
-    """Update the lookbook slideshow images."""
+    """Update the lookbook slideshow with paired spreads."""
     if not images:
         return html
-    img_block = build_slideshow_html(images, "Lookbook")
+    # Build paired spreads (2 photos per spread)
+    spreads = []
+    for i in range(0, len(images), 2):
+        pair = images[i:i + 2]
+        active = ' active' if i == 0 else ''
+        imgs = "\n".join(
+            f'                <img src="images/{img}" alt="Lookbook" loading="lazy">'
+            for img in pair
+        )
+        spreads.append(
+            f'            <div class="lookbook-spread{active}">\n{imgs}\n            </div>'
+        )
+    spread_block = "\n".join(spreads)
     pattern = (
         r'(<div class="lookbook-slideshow"[^>]*>)\s*\n'
         r'(.*?)'
         r'(\s*<button class="slide-arrow)'
     )
-    replacement = f"\\1\n{img_block}\n\\3"
+    replacement = f"\\1\n{spread_block}\n\\3"
     return re.sub(pattern, replacement, html, flags=re.DOTALL)
 
 
