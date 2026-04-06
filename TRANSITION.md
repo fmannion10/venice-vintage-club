@@ -11,8 +11,8 @@ Everything you need to run venicevintageclub.com without Freddie.
 | **Live site** | [venicevintageclub.com](https://venicevintageclub.com) |
 | **GitHub repo** | [github.com/morganreisel/venice-vintage-club](https://github.com/morganreisel/venice-vintage-club) |
 | **Google Drive (photos)** | Shared folder: `VVC Media` (ID: `1RQYXWqeBc-NXHm_OqCLkf6MBkUJVUGAu`) |
-| **Domain** | `venicevintageclub.com` — managed by client (separate from GitHub) |
-| **Hosting** | GitHub Pages (free, auto-deploys) |
+| **Domain** | `venicevintageclub.com` — registered on Freddie's Cloudflare (pending transfer to Morgan after ~June 2026) |
+| **Hosting** | GitHub Pages (free, auto-deploys) + Cloudflare Pages backup at `venice-vintage-club.pages.dev` |
 | **Email** | `hello@venicevintageclub.com` — needs Google Workspace setup ($7/mo) |
 | **Instagram** | [@venicevintageclub](https://instagram.com/venicevintageclub) |
 
@@ -133,54 +133,44 @@ Photos are auto-named `{section}-01.jpg`, `{section}-02.jpg`, etc. You don't nee
 ## Domain & DNS
 
 **Domain:** `venicevintageclub.com`
+**Registrar:** Cloudflare (registered on Freddie's account: fredpmannion@gmail.com)
 **Hosting:** GitHub Pages (via the `CNAME` file in the repo)
-**DNS:** Cloudflare (proxies traffic to GitHub Pages)
+**DNS:** Cloudflare (Freddie's account, DNS-only mode pointing to GitHub Pages)
 
-### Moving the domain to your own Cloudflare account
+### Current Setup (as of April 6, 2026)
 
-The VVC domain needs to move from Freddie's Cloudflare account to yours. This is a one-time setup that takes about 10 minutes. The site may be briefly unreachable while the nameservers update (usually under an hour, sometimes up to 24 hours).
+The domain is registered on Freddie's Cloudflare account but the site is hosted on Morgan's GitHub Pages. DNS records on Freddie's Cloudflare:
 
-**Step 1 — Create your own Cloudflare account**
-1. Go to [dash.cloudflare.com](https://dash.cloudflare.com) and sign up with your email (morgyreisel@gmail.com or the VVC email)
-2. It's free — no payment needed
+- 4 **A records** → GitHub Pages IPs (`185.199.108-111.153`) — DNS only (grey cloud)
+- **CNAME** `www` → `morganreisel.github.io` — DNS only (grey cloud)
 
-**Step 2 — Add the VVC domain to your new account**
-1. Once logged in, click **"Add a site"**
-2. Enter `venicevintageclub.com`
-3. Choose the **Free** plan
-4. Cloudflare will scan your existing DNS records — let it finish
-5. You should see your existing records listed. If not, add these manually:
-   - **Type:** CNAME | **Name:** `@` | **Target:** `morganreisel.github.io` | **Proxy:** ON (orange cloud)
-   - **Type:** CNAME | **Name:** `www` | **Target:** `morganreisel.github.io` | **Proxy:** ON (orange cloud)
-6. Cloudflare will give you **two new nameservers** — write these down (they look like `anna.ns.cloudflare.com` and `bob.ns.cloudflare.com`)
+Morgan also has:
+- A **Cloudflare account** (morgyreisel@gmail.com, Account ID: `6b8936b45b933868bbf8a4e03d486ab4`)
+- A **Cloudflare Pages project** at `venice-vintage-club.pages.dev` (working backup, not currently used for the live domain)
+- The domain `venicevintageclub.com` added as a site on her Cloudflare (pending nameserver verification)
 
-**Step 3 — Update nameservers at the domain registrar**
-1. Log in to wherever the domain was purchased (check the VVC PRD doc — this is the domain registrar, separate from Cloudflare)
-2. Find the **Nameservers** or **DNS** settings for `venicevintageclub.com`
-3. Replace the old nameservers with the two new ones Cloudflare gave you
-4. Save
+### Pending: Domain Transfer to Morgan (after ~June 2026)
 
-**Step 4 — Wait and verify**
-1. Cloudflare will show the domain as "Pending" until the nameservers update — this can take 10 minutes to 24 hours
-2. Once it switches to "Active", your Cloudflare account is in control
-3. Check that [venicevintageclub.com](https://venicevintageclub.com) loads correctly
+The domain was registered within the last 60 days, so ICANN rules prevent transferring it to another Cloudflare account until that window passes. The domain expires **March 27, 2027**.
 
-**Step 5 — Tell Freddie to remove the domain from his account**
-Once everything is working on your end, let Freddie know so he can delete `venicevintageclub.com` from his Cloudflare account.
+**When the 60-day lock expires, do this:**
 
-### After the GitHub repo transfer
+1. **Freddie** logs into Cloudflare → Domains → Registrations → `venicevintageclub.com` → Configuration
+2. Click **"Move to another Cloudflare account"**
+3. Enter Morgan's Account ID: `6b8936b45b933868bbf8a4e03d486ab4`
+4. **Morgan** accepts the transfer on her Cloudflare dashboard
+5. **Morgan** updates DNS on her account to point to GitHub Pages (same A records and CNAME as above)
+6. **Freddie** deletes the `venicevintageclub.com` zone from his Cloudflare — done
 
-The GitHub repo moved from `fmannion10/venice-vintage-club` to `morganreisel/venice-vintage-club`. Make sure the Cloudflare DNS points to the right place:
-
-- The CNAME record should point to `morganreisel.github.io` (NOT `fmannion10.github.io`)
-- If you set up the DNS records in Step 2 above, this is already correct
+After the transfer, Morgan can optionally switch from GitHub Pages to Cloudflare Pages by adding `venicevintageclub.com` as a custom domain on her Pages project.
 
 ### DNS basics (in case you ever need them)
 
 The DNS must point to GitHub Pages:
 
-- If using an apex domain (`venicevintageclub.com`): Set a CNAME to `morganreisel.github.io`, or A records to GitHub's IPs (found in [GitHub Pages docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-github-pages))
-- If using `www`: Set a CNAME record pointing to `morganreisel.github.io`
+- If using an apex domain (`venicevintageclub.com`): A records to GitHub's IPs (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`)
+- If using `www`: CNAME record pointing to `morganreisel.github.io`
+- Records must be **DNS only (grey cloud)** so GitHub can handle SSL
 
 **Do not delete the `CNAME` file** in the repo — it tells GitHub Pages which domain to serve.
 
