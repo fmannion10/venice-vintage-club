@@ -9,8 +9,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   sync:
@@ -49,10 +47,4 @@ jobs:
             git push
           fi
 
-      - uses: actions/configure-pages@v4
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-
-      - uses: actions/deploy-pages@v4
+      # Deploy is handled by deploy.yml on push to main
